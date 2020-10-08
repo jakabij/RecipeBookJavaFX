@@ -12,18 +12,18 @@
 
 <GridPane fx:id="mainPage" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PageController">
   <columnConstraints>
-    <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="420.66668701171875" />
-    <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="179.33331298828125" />
+    <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="571.3332926432291" />
+    <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="228.66670735677087" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" prefHeight="297.99998982747394" vgrow="ALWAYS" />
   </rowConstraints>
    <children>
-      <TableView id="bookTable" fx:id="bookTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+      <TableView id="bookTable" fx:id="bookTable" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
       <TableView id="foodTable" fx:id="foodTable" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+      <Pane nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Button id="saveDbButton" fx:id="saveDbButton" layoutX="40.0" layoutY="23.0" mnemonicParsing="false" onAction="#saveToDatabase" prefHeight="39.0" prefWidth="179.0" text="Save to database" textAlignment="CENTER" />
+            <Button id="saveDbButton" fx:id="saveDbButton" layoutX="25.0" layoutY="17.0" mnemonicParsing="false" onAction="#saveToDatabase" prefHeight="39.0" prefWidth="179.0" text="Save to database" textAlignment="CENTER" />
             <Button id="backToBooksButton" fx:id="backToBooksButton" mnemonicParsing="false" onAction="#goBackToBooks" prefHeight="33.0" prefWidth="158.0" text="Go back to the books" visible="false" />
             <Label id="newBookNameLable" fx:id="newBookNameLable" layoutX="14.0" layoutY="283.0" text="Book's name" />
             <TextField id="newBookName" fx:id="newBookName" layoutX="15.0" layoutY="300.0" />

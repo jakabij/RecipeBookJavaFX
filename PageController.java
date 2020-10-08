@@ -7,6 +7,8 @@ import java.util.Arrays;
 import java.util.ResourceBundle;
 
 import application.Project.Food;
+import application.Project.PostgreSQLLoader;
+import application.Project.PostgreSQLSave;
 import application.Project.RecipeBook;
 import application.Project.Store;
 import application.Project.XMLLoader;
@@ -95,13 +97,16 @@ public class PageController implements Initializable{
 	@FXML
 	private Button addFoodButton;
 	
-	
-	XMLLoader l = new XMLLoader();
-	XMLSaver s = new XMLSaver();
-	
 	private ObservableList<RecipeBook> data;
 	private Store store;
 	private int currentBookIndex;
+	private String postgreSQLUrl = "jdbc:postgresql://localhost:5432/java_knowledge_base";
+	private String postgreUsername = "postgres";
+	private String postgrePassword = "admin";
+	
+	PostgreSQLLoader l = new PostgreSQLLoader(postgreSQLUrl, postgreUsername, postgrePassword);
+	PostgreSQLSave s = new PostgreSQLSave(postgreSQLUrl, postgreUsername, postgrePassword, store);
+	
 	
 	public PageController() {
 		try {

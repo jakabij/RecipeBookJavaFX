@@ -57,11 +57,12 @@ public class PostgreSQLSave implements ISaver{
             if(resultSet.next()){
                 UI ui = new UI();
                 ui.getInfo("Table already exists.");
-                String choice = ui.getInputFromUser("Do you really want to drop those?");
-
-                if(choice.toLowerCase().equals("yes") || choice.toLowerCase().equals("y")){       
-                    st.execute("DELETE from recepe_books");
-                }
+                st.execute("DELETE from recepe_books");
+//                String choice = ui.getInputFromUser("Do you really want to drop those?");
+//
+//                if(choice.toLowerCase().equals("yes") || choice.toLowerCase().equals("y")){       
+//                    st.execute("DELETE from recepe_books");
+//                }
             }else{
                 st.execute("CREATE TABLE recepe_books(" +
                 "book_id text PRIMARY KEY, " + 

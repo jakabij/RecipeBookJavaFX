@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -46,6 +47,7 @@ public class FoodMaintainer {
 			TextField newBookName, Button createBookButton, Label newBookNameLable,
 			ChoiceBox<String> foodTypeDropDownList, Button createNewFoodButton) {
 		
+		this.currentBook = currentBook;
 		this.bookTable = bookTable;
 		this.foodTable = foodTable;
 		this.saveDbButton = saveDbButton;
@@ -119,10 +121,7 @@ public class FoodMaintainer {
 								button.setOnAction((ActionEvent event) -> {
 									Food food = getTableView().getItems().get(getIndex());
 									
-									for(var c : currentBook.getListOfFoods()) {
-										System.out.println("--------"+ c.getNameOfFood());
-									}
-//									currentBook.getListOfFoods().remove(food);
+									currentBook.getListOfFoods().remove(food);
 		                            
 		                            getTableView().getItems().remove(getIndex());
 		                            System.out.println("Selected data (" + food.getId() + ") was deleted.\n");
@@ -169,6 +168,7 @@ public class FoodMaintainer {
 							{
 								//button that brings the food detail
 								button.setOnAction((ActionEvent event) -> {
+									
 									Food food = getTableView().getItems().get(getIndex());
 									
 									String foodType = "Appetizer";
@@ -202,9 +202,8 @@ public class FoodMaintainer {
 		                            
 		                            TextFlow tf2 = new TextFlow();
 		                            
-		                            tfi1 = new TextField();
-		                            tfi1.setText("Food Ingredients");
-		                            tfi1.setEditable(false);
+		                            Label label1 = new Label();
+		                            label1.setText("Food Ingredients");
 		                           
 		                            ArrayList<String> listOfIngredeients = food.getListOfIngredients();
 									if(foodType.equals("Second Meal")) {
@@ -216,7 +215,7 @@ public class FoodMaintainer {
 		                            ObservableList<String> items =FXCollections.observableArrayList (listOfIngredeients);
 		                            list.setItems(items);
 		                            
-		                            tf2.getChildren().addAll(tfi1,list);
+		                            tf2.getChildren().addAll(label1,list);
 		                            gp.addRow(1, tf2);
 		                            
 		                            

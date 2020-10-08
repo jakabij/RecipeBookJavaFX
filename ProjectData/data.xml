@@ -5,7 +5,12 @@
             <Ingredient>ingr1</Ingredient>
             <Ingredient>ingr2</Ingredient>
         </Food>
+        <Food foodType="Appetizer" id="5KE5qdicw" name="Second Appetizer" timeToPrepare="01:01:01" toServeCold="false">
+            <Ingredient>1</Ingredient>
+            <Ingredient>2</Ingredient>
+            <Ingredient>3</Ingredient>
+        </Food>
     </RecepeBook>
-    <RecepeBook id="bV25bEq3G" name="second "/>
+    <RecepeBook id="bV25bEq3G" name="Second"/>
     <RecepeBook id="v7Z59BzP7" name="third"/>
 </Store>
