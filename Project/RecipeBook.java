@@ -57,6 +57,27 @@ public class RecipeBook {
     }
 
 
+    public Food createAppetizerJavaFX(String nameOfFood, String serveCold,
+    		ArrayList<String> listOfIngredients, String timeToPrepare) {
+    	
+    	 String id = null;
+		try {
+			id = ui.idGenerator();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	 
+    	 boolean isServeCold = false;
+    	 if(serveCold.equals("True"))
+    		 isServeCold = true;
+    	 
+    	 Time toPrepare = Time.valueOf(timeToPrepare);
+    	 
+    	 return new Appetizer(id, nameOfFood, isServeCold, listOfIngredients, toPrepare);
+    }
+    
+    
     private Food createAppetizer(String nameOfFood, boolean serveCold, ArrayList<String> listOfIngredients) throws Exception
         {
             String id = ui.idGenerator();
@@ -89,7 +110,29 @@ public class RecipeBook {
             }
             return new Appetizer(id, nameOfFood, serveCold, listOfIngredients, timeToPrepare);
         }
-
+    	public Food createSecondMealJavaFX(String nameOfFood, String serveCold,
+        		ArrayList<String> listOfIngredients, String timeToPrepare, String needToCook, ArrayList<String> listOfSpices) {
+    		
+    		String id = null;
+			try {
+				id = ui.idGenerator();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		boolean isServeCold = false;
+	       	if(serveCold.equals("True"))
+	       		 isServeCold = true;
+	       	 
+	       	Time toPrepare = Time.valueOf(timeToPrepare);
+	       	boolean isNeedToCook = false;
+	       	if(needToCook.equals("True"))
+	       		isNeedToCook = true;
+    		
+	       	return new SecondMeal(id, nameOfFood, isServeCold, listOfIngredients, isNeedToCook, toPrepare, listOfSpices);
+	       	
+    	}
+    
         private Food createSecondMeal(String nameOfFood, boolean serveCold, ArrayList<String> listOfIngredients) throws Exception
         {
             String id = ui.idGenerator();
@@ -154,6 +197,29 @@ public class RecipeBook {
             return new SecondMeal(id, nameOfFood, serveCold, listOfIngredients, needToCook, timeToPrepare, listOfSpices);
         }
 
+        
+        public Food createDessertJavaFX(String nameOfFood, String serveCold,
+        		ArrayList<String> listOfIngredients, String timeToPrepare, String needToCook) {
+        	
+        	String id = null;
+			try {
+				id = ui.idGenerator();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    		boolean isServeCold = false;
+	       	if(serveCold.equals("True"))
+	       		 isServeCold = true;
+	       	 
+	       	Time toPrepare = Time.valueOf(timeToPrepare);
+	       	boolean isNeedToCook = false;
+	       	if(needToCook.equals("True"))
+	       		isNeedToCook = true;
+    		
+	       	return new Dessert(id, nameOfFood, isServeCold, listOfIngredients, isNeedToCook, toPrepare);
+        }
+        
         private Food createDessert(String nameOfFood, boolean serveCold, ArrayList<String> listOfIngredients) throws Exception
         {
             String id = ui.idGenerator();

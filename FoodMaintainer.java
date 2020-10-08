@@ -14,6 +14,8 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
@@ -33,13 +35,27 @@ public class FoodMaintainer {
 	private TableView<Food> foodTable;
 	private Button saveDbButton;
 	private Button goBackToBooks;
+	private TextField newBookName;
+	private Button createBookButton;
+	private Label newBookNameLable;
+	private ChoiceBox<String> foodTypeDropDownList;
+	private Button createNewFoodButton;
 	
 	public FoodMaintainer(RecipeBook currentBook, TableView<RecipeBook> bookTable,
-			TableView<Food> foodTable, Button saveDbButton, Button goBackToBooks) {
+			TableView<Food> foodTable, Button saveDbButton, Button goBackToBooks,
+			TextField newBookName, Button createBookButton, Label newBookNameLable,
+			ChoiceBox<String> foodTypeDropDownList, Button createNewFoodButton) {
+		
 		this.bookTable = bookTable;
 		this.foodTable = foodTable;
 		this.saveDbButton = saveDbButton;
 		this.goBackToBooks = goBackToBooks;
+		this.createBookButton = createBookButton;
+		this.newBookName = newBookName;
+		this.newBookNameLable = newBookNameLable;
+		this.foodTypeDropDownList = foodTypeDropDownList;
+		this.createNewFoodButton = createNewFoodButton;
+		
 		data = FXCollections.observableArrayList(currentBook.getListOfFoods());
 	}
 	
@@ -49,6 +65,16 @@ public class FoodMaintainer {
 		this.foodTable.setVisible(true);
 		this.saveDbButton.setVisible(false);
 		this.goBackToBooks.setVisible(true);
+		this.createBookButton.setVisible(false);
+		this.newBookName.setVisible(false);
+		this.newBookNameLable.setVisible(false);
+		this.foodTypeDropDownList.setVisible(true);
+		
+		this.foodTypeDropDownList.getItems().clear();
+		this.foodTypeDropDownList.getItems().addAll("Appetizer", "Second Meal", "Dessert");
+		this.foodTypeDropDownList.setValue("Appetizer");
+		
+		this.createNewFoodButton.setVisible(true);
 	}
 	
 	public void loadTable() {
@@ -92,12 +118,16 @@ public class FoodMaintainer {
 							{
 								button.setOnAction((ActionEvent event) -> {
 									Food food = getTableView().getItems().get(getIndex());
-									currentBook.getListOfFoods().remove(food);
+									
+									for(var c : currentBook.getListOfFoods()) {
+										System.out.println("--------"+ c.getNameOfFood());
+									}
+//									currentBook.getListOfFoods().remove(food);
 		                            
 		                            getTableView().getItems().remove(getIndex());
 		                            System.out.println("Selected data (" + food.getId() + ") was deleted.\n");
 		                            
-		                            System.out.println("The books stored currently:");
+		                            System.out.println("The foods stored currently:");
 		                            
 		                            if(currentBook.getListOfFoods().size() == 0)
 			                            System.out.println("\tNo books found.");
@@ -106,7 +136,6 @@ public class FoodMaintainer {
 			                            System.out.println("\t- " +f.getId() + ": " + f.getNameOfFood());
 		                            }
 		                            
-
 		                            System.out.println("\n");
 		                        });
 		                    }
@@ -220,6 +249,7 @@ public class FoodMaintainer {
 		};
 		col4.setCellFactory(cellFactory2);
 		
+		foodTable.getColumns().clear();
 		
 		if(foodTable.getColumns().addAll(col1, col2, col3, col4)) {
 			System.out.println("Table's cells created successfully.\n\n");

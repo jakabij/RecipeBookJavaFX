@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
 <GridPane fx:id="mainPage" alignment="BASELINE_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PageController">
@@ -16,8 +20,30 @@
   </rowConstraints>
    <children>
       <TableView id="bookTable" fx:id="bookTable" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-      <Button id="saveDbButton" fx:id="saveDbButton" mnemonicParsing="false" prefHeight="39.0" prefWidth="179.0" text="Save to database" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS" />
       <TableView id="foodTable" fx:id="foodTable" prefHeight="200.0" prefWidth="200.0" visible="false" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
-      <Button id="backToBooksButton" fx:id="backToBooksButton" mnemonicParsing="false" onAction="#goBackToBooks" prefHeight="33.0" prefWidth="158.0" text="Go back to the books" visible="false" GridPane.columnIndex="1" />
+      <Pane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+         <children>
+            <Button id="saveDbButton" fx:id="saveDbButton" layoutX="40.0" layoutY="23.0" mnemonicParsing="false" onAction="#saveToDatabase" prefHeight="39.0" prefWidth="179.0" text="Save to database" textAlignment="CENTER" />
+            <Button id="backToBooksButton" fx:id="backToBooksButton" mnemonicParsing="false" onAction="#goBackToBooks" prefHeight="33.0" prefWidth="158.0" text="Go back to the books" visible="false" />
+            <Label id="newBookNameLable" fx:id="newBookNameLable" layoutX="14.0" layoutY="283.0" text="Book's name" />
+            <TextField id="newBookName" fx:id="newBookName" layoutX="15.0" layoutY="300.0" />
+            <Button id="createBookButton" fx:id="createBookButton" layoutX="49.0" layoutY="344.0" mnemonicParsing="false" onAction="#createNewBook" text="Create Book" />
+            <ChoiceBox id="foodTypeDropDownList" fx:id="foodTypeDropDownList" layoutX="14.0" layoutY="168.0" prefWidth="150.0" visible="false" />
+            <Button id="createNewFoodButton" fx:id="createNewFoodButton" layoutX="44.0" layoutY="201.0" mnemonicParsing="false" onAction="#addInputPanelsForNewFood" prefHeight="25.0" prefWidth="90.0" text="Create food" visible="false" />
+            <TextField id="newFoodName" fx:id="newFoodName" layoutX="30.0" layoutY="112.0" visible="false" />
+            <TextField id="newSecondMealSpices" fx:id="newSecondMealSpices" layoutX="30.0" layoutY="412.0" visible="false" />
+            <TextField id="newFoodTimeToPrepare" fx:id="newFoodTimeToPrepare" layoutX="30.0" layoutY="226.0" text="HH:MM:SS" visible="false" />
+            <TextField id="newFoodIngredients" fx:id="newFoodIngredients" layoutX="30.0" layoutY="288.0" visible="false" />
+            <Label id="newFoodNameLable" fx:id="newFoodNameLable" layoutX="16.0" layoutY="89.0" prefHeight="17.0" prefWidth="81.0" text="Food's name" visible="false" />
+            <Label id="newFoodServeColdLabel" fx:id="newFoodServeColdLabel" layoutX="16.0" layoutY="151.0" prefHeight="17.0" prefWidth="126.0" text="Prefer to serve cold?" visible="false" />
+            <ChoiceBox id="newFoodServeCold" fx:id="newFoodServeCold" layoutX="29.0" layoutY="168.0" prefWidth="150.0" visible="false" />
+            <Label id="newFoodTimeToPrepareLabel" fx:id="newFoodTimeToPrepareLabel" layoutX="16.0" layoutY="205.0" prefHeight="17.0" prefWidth="126.0" text="Time to prepare " visible="false" />
+            <Label id="newFoodIngredientsLabel" fx:id="newFoodIngredientsLabel" layoutX="18.0" layoutY="266.0" prefHeight="17.0" prefWidth="158.0" text="List of ingredients (sep by ',')" visible="false" />
+            <Label id="newSecondMealDesserNeedToCookLabel" fx:id="newSecondMealDesserNeedToCookLabel" layoutX="18.0" layoutY="325.0" prefHeight="17.0" prefWidth="158.0" text="Need to cook in the oven?" visible="false" />
+            <ChoiceBox id="newSecondMealDesserNeedToCook" fx:id="newSecondMealDesserNeedToCook" layoutX="29.0" layoutY="344.0" prefWidth="150.0" visible="false" />
+            <Label id="newSecondMealSpicesLabel" fx:id="newSecondMealSpicesLabel" layoutX="18.0" layoutY="385.0" prefHeight="17.0" prefWidth="158.0" text="List of spices (sep by ',')" visible="false" />
+            <Button id="addFoodButton" fx:id="addFoodButton" layoutX="31.0" layoutY="450.0" mnemonicParsing="false" onAction="#addCreatedFoodToList" prefHeight="25.0" prefWidth="207.0" text="Add Food" visible="false" />
+         </children>
+      </Pane>
    </children>
 </GridPane>

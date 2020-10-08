@@ -1,19 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Store>
-    <RecepeBook id="QVy99vxrw" name="First Book">
-        <Food foodType="Appetizer" id="XfqwzmJtL" name="Appetizer1" timeToPrepare="00:12:00" toServeCold="true">
+    <RecepeBook id="JvpeHeFOL" name="FIrst">
+        <Food foodType="Appetizer" id="zDwQWrKB7" name="First Appetizer" timeToPrepare="01:01:01" toServeCold="true">
             <Ingredient>ingr1</Ingredient>
             <Ingredient>ingr2</Ingredient>
         </Food>
     </RecepeBook>
-    <RecepeBook id="dWplwMypg" name="Second Book">
-        <Food foodType="SecondMeal" id="5aVAiaIz4" name="SecondMeal1" needToCook="true" timeToPrepare="01:01:00" toServeCold="true">
-            <Ingredient>ingr1</Ingredient>
-            <Ingredient>ingr2</Ingredient>
-            <Ingredient>ingr3</Ingredient>
-            <Ingredient>ingr4</Ingredient>
-            <Spice>spice1</Spice>
-            <Spice>spice2</Spice>
-        </Food>
-    </RecepeBook>
+    <RecepeBook id="bV25bEq3G" name="second "/>
+    <RecepeBook id="v7Z59BzP7" name="third"/>
 </Store>
