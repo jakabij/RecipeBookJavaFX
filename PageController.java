@@ -150,7 +150,7 @@ public class PageController implements Initializable{
 		                            System.out.println("Selected data (" + book.getId() + ").\n");
 		                            
 		                            FoodMaintainer foodMaintainer = 
-		                            		new FoodMaintainer(book.getListOfFoods() ,bookTable, 
+		                            		new FoodMaintainer(book ,bookTable, 
 		                            				foodTable, saveDbButton, backToBooksButton);
 
 		                            foodMaintainer.showFoodTable();

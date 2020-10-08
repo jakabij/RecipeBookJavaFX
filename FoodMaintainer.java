@@ -27,21 +27,20 @@ import javafx.stage.Stage;
 import javafx.util.Callback;
 
 public class FoodMaintainer {
-	private ArrayList<Food> listOfFoods;
+	private RecipeBook currentBook;
 	private ObservableList<Food> data;
 	private TableView<RecipeBook> bookTable;
 	private TableView<Food> foodTable;
 	private Button saveDbButton;
 	private Button goBackToBooks;
 	
-	public FoodMaintainer(ArrayList<Food> foods, TableView<RecipeBook> bookTable,
+	public FoodMaintainer(RecipeBook currentBook, TableView<RecipeBook> bookTable,
 			TableView<Food> foodTable, Button saveDbButton, Button goBackToBooks) {
-		this.listOfFoods = foods;
 		this.bookTable = bookTable;
 		this.foodTable = foodTable;
 		this.saveDbButton = saveDbButton;
 		this.goBackToBooks = goBackToBooks;
-		data = FXCollections.observableArrayList(listOfFoods);
+		data = FXCollections.observableArrayList(currentBook.getListOfFoods());
 	}
 	
 	public void showFoodTable() {
@@ -93,17 +92,17 @@ public class FoodMaintainer {
 							{
 								button.setOnAction((ActionEvent event) -> {
 									Food food = getTableView().getItems().get(getIndex());
-		                            listOfFoods.remove(food);
+									currentBook.getListOfFoods().remove(food);
 		                            
 		                            getTableView().getItems().remove(getIndex());
 		                            System.out.println("Selected data (" + food.getId() + ") was deleted.\n");
 		                            
 		                            System.out.println("The books stored currently:");
 		                            
-		                            if(listOfFoods.size() == 0)
+		                            if(currentBook.getListOfFoods().size() == 0)
 			                            System.out.println("\tNo books found.");
 		                            
-		                            for(var f : listOfFoods) {
+		                            for(var f : currentBook.getListOfFoods()) {
 			                            System.out.println("\t- " +f.getId() + ": " + f.getNameOfFood());
 		                            }
 		                            
@@ -139,6 +138,7 @@ public class FoodMaintainer {
 							private final Button button = new Button("Show food's details");
 							
 							{
+								//button that brings the food detail
 								button.setOnAction((ActionEvent event) -> {
 									Food food = getTableView().getItems().get(getIndex());
 									
@@ -153,7 +153,6 @@ public class FoodMaintainer {
 									
 		                            System.out.println("Selected data (" + food.getId() + ").\n");
 		                            
-		                            //TODO popup window
 		                            Stage popUpWindow = new Stage();
 		                            
 		                            GridPane gp = new GridPane();
@@ -196,16 +195,7 @@ public class FoodMaintainer {
 		                           //food details come here
 		                            gp.addRow(2, createTextFlowForFoodTypes(foodType, food));
 		                            
-		                            
-		                            
-		                            
-		                            
-		                            
-		                            
-		                            
-		                            
-//		                            VBox dialogVbox = new VBox(20);
-//		                            dialogVbox.getChildren().add(new Text("This is a Dialog"));
+		                            //create pop up window as a scene
 		                            Scene dialogScene = new Scene(gp, 500, 600);
 		                            popUpWindow.setScene(dialogScene);
 		                            popUpWindow.show();
