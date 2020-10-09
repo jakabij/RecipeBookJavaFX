@@ -256,6 +256,35 @@ public class PageController implements Initializable{
 		this.newBookNameLable.setVisible(true);
 		this.foodTypeDropDownList.setVisible(false);
 		this.createNewFoodButton.setVisible(false);
+		
+		foodTypeDropDownList.setVisible(false);
+		createNewFoodButton.setVisible(false);
+		
+		newFoodName.setVisible(false);
+		newFoodNameLable.setVisible(false);
+		
+		newFoodServeCold.getItems().clear();
+		newFoodServeCold.getItems().addAll("True", "False");
+		newFoodServeCold.setValue("True");
+		newFoodServeCold.setVisible(false);
+		newFoodServeColdLabel.setVisible(false);
+		
+		newFoodIngredients.setVisible(false);
+		newFoodIngredientsLabel.setVisible(false);
+		
+		newFoodTimeToPrepare.setVisible(false);
+		newFoodTimeToPrepareLabel.setVisible(false);
+		
+		addFoodButton.setVisible(false);
+		
+		newSecondMealSpices.setVisible(false);
+		newSecondMealSpicesLabel.setVisible(false);
+		
+		newSecondMealDesserNeedToCook.getItems().clear();
+		newSecondMealDesserNeedToCook.getItems().addAll("True", "False");
+		newSecondMealDesserNeedToCook.setValue("True");
+		newSecondMealDesserNeedToCook.setVisible(false);
+		newSecondMealDesserNeedToCookLabel.setVisible(false);
 	}
 
 	public void saveToDatabase() {
